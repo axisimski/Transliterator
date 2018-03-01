@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                  String opit=readCorpus(MyCorpus);
-                  output.setText(opit);
+                //  String opit=readCorpus(MyCorpus);
+                  output.setText(readCorpus(MyCorpus));
 
             }
         });
@@ -77,20 +77,17 @@ public class MainActivity extends AppCompatActivity {
             fos.write(content.getBytes());
             fos.close();
             Toast.makeText(this, "Saved Corpus", Toast.LENGTH_SHORT).show();
-        }catch (FileNotFoundException e){
+        }catch (Exception e){
             Toast.makeText(this, "File not found", Toast.LENGTH_SHORT).show();
-
-        }catch (IOException e){
-            Toast.makeText(this, "Error~!", Toast.LENGTH_SHORT).show();
         }
     }//end write
-
+//--------------------------------------------------------------------------------------------
      public String readCorpus(String file){
 
          String text="";
 
          try {
-             FileInputStream fis = new FileInputStream(file);
+             FileInputStream fis =   this.openFileInput(file);
              int size=fis.available();
              byte[] buffer = new byte[size];
              fis.read(buffer);
@@ -98,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
              text=new String(buffer);
 
          }catch (Exception e){
+             e.printStackTrace();
              Toast.makeText(this, "Error reading file", Toast.LENGTH_SHORT).show();
          }
 
