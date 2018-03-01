@@ -10,11 +10,10 @@
         android:id="@+id/ngramInput"
         android:layout_width="500dp"
         android:layout_height="50dp"
-        android:hint="Ngram"
-        android:layout_above="@+id/insertCorpus"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="84dp"
+        android:layout_alignEnd="@+id/calculateProb"
+        android:layout_centerVertical="true"
         android:ems="10"
+        android:hint="Ngram"
         android:inputType="textUri|textPersonName" />
 
     <Button
@@ -38,17 +37,17 @@
         android:id="@+id/corpusInput"
         android:layout_width="500dp"
         android:layout_height="50dp"
-        android:hint="Corpus"
-        android:layout_alignBottom="@+id/insertCorpus"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="55dp"
+        android:layout_alignEnd="@+id/calculateProb"
+        android:layout_alignTop="@+id/ngramInput"
+        android:layout_marginTop="76dp"
         android:ems="10"
+        android:hint="Corpus"
         android:inputType="textUri|textPersonName" />
 
     <TextView
         android:id="@+id/output"
         android:layout_width="500dp"
-        android:layout_height="250dp"
+        android:layout_height="180dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 

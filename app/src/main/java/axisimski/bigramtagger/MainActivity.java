@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String opit=readCorpus(MyCorpus);
+                String corpus=readCorpus(MyCorpus);
                 String unigram=ngramInput.getText().toString();
 
-                String n=parseCorpus(opit, unigram);
+                String n=parseCorpus(corpus, unigram);
                 output.setText(n);
             }
         });
@@ -108,22 +108,34 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public String parseCorpus(String opit, String ngram){
-
+    public String parseCorpus(String corpus, String ngram){
 
 
         //---------------------------------------------------------------corpus size
-        int numCharsCorpus=opit.length();
+        int numCharsCorpus=corpus.length();
         int corpusSize=0;
-        StringTokenizer st = new StringTokenizer(opit, " ");
+        StringTokenizer st = new StringTokenizer(corpus, " ");
         corpusSize= st.countTokens();
         String css=Integer.toString(corpusSize);
-        opit="Corpus size: "+css+"\n"+opit;
         //----------------------------------------------------------end corpus size
 
-        opit=opit+ngram;
+        String[] arr = corpus.split("\\s+");
 
-         return opit;
+
+        int counter=0;
+
+        for(int i=0;i<corpusSize;i++){
+
+            if(arr[i]==ngram){
+                counter++;
+            }
+        }
+
+
+
+        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nNgram count: "+Integer.toString(counter)+"\nCorpus: "+corpus;
+
+        return corpus;
 
 
     }
