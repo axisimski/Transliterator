@@ -119,21 +119,23 @@ public class MainActivity extends AppCompatActivity {
         String css=Integer.toString(corpusSize);
         //----------------------------------------------------------end corpus size
 
-        String[] arr = corpus.split("\\s+");
+        String[] arr = corpus.split("\\W+");
 
 
         int counter=0;
+        String opit="";
 
         for(int i=0;i<corpusSize;i++){
 
-            if(arr[i]==ngram){
+            opit=opit+"\n"+arr[i];
+            if(arr[i].equals(ngram)){
                 counter++;
             }
         }
 
 
 
-        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nNgram count: "+Integer.toString(counter)+"\nCorpus: "+corpus;
+        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nNgram count: "+Integer.toString(counter)+"\nCorpus: "+corpus+"\n"+opit;
 
         return corpus;
 
