@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         final EditText input=(EditText)findViewById(R.id.input);
-        TextView output=(TextView)findViewById(R.id.output);
+        final TextView output=(TextView)findViewById(R.id.output);
         Button insertCorpus=(Button)findViewById(R.id.insertCorpus);
         Button calculateProb=(Button)findViewById(R.id.calculateProb);
 
@@ -46,15 +47,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String corpus=input.getText().toString();
-                saveCorpus("MyCorpus", corpus);
+                writeCorpus("MyCorpus", corpus);
 
             }
         });
 
-    }
+        calculateProb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              //    String opit=readCorpus(MyCorpus);
+              //    output.setText(opit);
+
+            }
+        });
 
 
-    private void saveCorpus(String filename, String content){
+
+
+
+
+    }//end onCreate
+
+
+
+
+
+     public void writeCorpus(String filename, String content){
 
         String fileName = filename+".txt";
 
@@ -72,10 +91,28 @@ public class MainActivity extends AppCompatActivity {
         }catch (IOException e){
             Toast.makeText(this, "Error~!", Toast.LENGTH_SHORT).show();
         }
-    }
+    }//end
 
-    //@Override
-    public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+     public String readCorpus(String file){
+
+         String text="";
+
+         try {
+             FileInputStream fis = new FileInputStream(file);
+             int size=fis.available();
+             byte[] buffer = new byte[size];
+             fis.read(buffer);
+             fis.close();
+             text=new String(buffer);
+
+         }catch (Exception e){
+             Toast.makeText(this, "Error reading file", Toast.LENGTH_SHORT).show();
+         }
+
+         return text;
+     }//end read Corpus
+
+     public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
 
         switch (requestCode){
             case 1000:
@@ -83,13 +120,12 @@ public class MainActivity extends AppCompatActivity {
                 if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
                     Toast.makeText(this, "Granted",Toast.LENGTH_SHORT).show();
                 }
-
                 else
                     Toast.makeText(this,"Permission not granted", Toast.LENGTH_SHORT).show();
                 finish();
         }
 
-    }
+    }//end
 
 
 
