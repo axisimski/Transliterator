@@ -107,16 +107,18 @@ public class MainActivity extends AppCompatActivity {
     public String parseCorpus(){
 
         String opit=readCorpus(MyCorpus);
-        //int numCharsCorpus=corpusString.length();
-       //  int corpusSize=0;
+        int numCharsCorpus=opit.length();
+         int corpusSize=0;
 
-      //   StringTokenizer st = new StringTokenizer(corpusString, ",");
-    //     corpusSize= st.countTokens();
+        StringTokenizer st = new StringTokenizer(opit, " ");
+         corpusSize= st.countTokens();
 
 
-       // String css=Integer.toString(corpusSize);
+        String css=Integer.toString(corpusSize);
 
-    return opit;
+        opit="Corpus size: "+css+"\n"+opit;
+
+      return opit;
 
 
     }
