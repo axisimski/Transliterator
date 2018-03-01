@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText corpusInput=(EditText)findViewById(R.id.corpusInput);
-        final EditText ngramInput=(EditText)findViewById(R.id.ngramInput);
+        corpusInput=(EditText)findViewById(R.id.corpusInput);
+        EditText ngramInput=(EditText)findViewById(R.id.ngramInput);
         final TextView output=(TextView)findViewById(R.id.output);
         Button insertCorpus=(Button)findViewById(R.id.insertCorpus);
         Button calculateProb=(Button)findViewById(R.id.calculateProb);
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Calculate unigrams (Split of into own function latter).
 
-        //String unigram=ngramInput.getText().toString();
+       String unigram=ngramInput.getText().toString();
         int  unigramCount=0;
 
        // for(int i=0;i<corpusSize;i++){
