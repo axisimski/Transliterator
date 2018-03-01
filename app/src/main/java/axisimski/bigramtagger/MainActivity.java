@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,23 +55,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //  String opit=readCorpus(MyCorpus);
-                  output.setText(readCorpus(MyCorpus));
-
+                 //String opit=readCorpus(MyCorpus); //NOT declared final won't work latter
+                // output.setText(opit);
+                String n=parseCorpus();
+                output.setText(n);
             }
         });
-
-
-
-
-
 
     }//end onCreate
 
 
 
-
-
+//Read/Write block
+//=======================================================================================//
      public void writeCorpus(String filename, String content){
 
         try{
@@ -80,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this, "File not found", Toast.LENGTH_SHORT).show();
         }
-    }//end write
-//--------------------------------------------------------------------------------------------
+    }//end write            //
+//---------------------------------------------------------------------------------------//
      public String readCorpus(String file){
 
          String text="";
@@ -100,13 +98,28 @@ public class MainActivity extends AppCompatActivity {
          }
 
          return text;
-     }//end read Corpus
+     }//end read Corpus                         //
+//=======================================================================================//
+//End of Read/Write block
 
 
 
+    public String parseCorpus(){
+
+        String opit=readCorpus(MyCorpus);
+        //int numCharsCorpus=corpusString.length();
+       //  int corpusSize=0;
+
+      //   StringTokenizer st = new StringTokenizer(corpusString, ",");
+    //     corpusSize= st.countTokens();
 
 
+       // String css=Integer.toString(corpusSize);
 
+    return opit;
+
+
+    }
 
 
 
