@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         insertCorpus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
                 String corpus=input.getText().toString();
                 saveCorpus("MyCorpus", corpus);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    //@Override
     public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
 
         switch (requestCode){
