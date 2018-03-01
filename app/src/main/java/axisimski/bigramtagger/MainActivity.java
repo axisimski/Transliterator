@@ -20,12 +20,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText input;
+    EditText corpusInput;
+    EditText ngramInput;
     TextView output;
     Button insertCorpus;
     Button calculateProb;
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText input=(EditText)findViewById(R.id.input);
+        final EditText corpusInput=(EditText)findViewById(R.id.corpusInput);
+        final EditText ngramInput=(EditText)findViewById(R.id.ngramInput);
         final TextView output=(TextView)findViewById(R.id.output);
         Button insertCorpus=(Button)findViewById(R.id.insertCorpus);
         Button calculateProb=(Button)findViewById(R.id.calculateProb);
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String corpus=input.getText().toString();
+                String corpus=corpusInput.getText().toString();
                 writeCorpus(MyCorpus, corpus);
 
             }
@@ -107,16 +110,47 @@ public class MainActivity extends AppCompatActivity {
     public String parseCorpus(){
 
         String opit=readCorpus(MyCorpus);
+      //  String[] arr = opit.split("\\s+");
+      //  ArrayList<String> arr =new ArrayList <String>(); //Put corpus members into arraylist.
+
+
+        //---------------------------------------------------------------corpus size
         int numCharsCorpus=opit.length();
-         int corpusSize=0;
-
+        int corpusSize=0;
         StringTokenizer st = new StringTokenizer(opit, " ");
-         corpusSize= st.countTokens();
-
-
+        corpusSize= st.countTokens();
         String css=Integer.toString(corpusSize);
-
         opit="Corpus size: "+css+"\n"+opit;
+        //----------------------------------------------------------end corpus size
+
+
+        //Calculate unigrams (Split of into own function latter).
+
+        //String unigram=ngramInput.getText().toString();
+        int  unigramCount=0;
+
+       // for(int i=0;i<corpusSize;i++){
+
+           // if(arr.equals(unigram)){
+           //     unigramCount++;
+           // }
+
+     //   }
+
+
+
+      //  opit=opit+"\n"+Integer.toString(unigramCount);
+
+
+
+
+
+
+
+
+
+
+
 
       return opit;
 
