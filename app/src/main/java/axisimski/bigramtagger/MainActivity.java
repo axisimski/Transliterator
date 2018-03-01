@@ -128,14 +128,14 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<corpusSize;i++){
 
             opit=opit+"\n"+arr[i];
-            if(arr[i].equals(ngram)){
+            if(arr[i].contains(ngram)){
                 counter++;
             }
         }
 
 
 
-        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nNgram count: "+Integer.toString(counter)+"\nCorpus: "+corpus+"\n"+opit;
+        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nNgram count: "+Integer.toString(counter)+"\nCorpus: "+corpus+"\n";
 
         return corpus;
 
