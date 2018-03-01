@@ -3,6 +3,7 @@ package axisimski.bigramtagger;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1000);
         }
 
-        EditText input=(EditText)findViewById(R.id.input);
+        final EditText input=(EditText)findViewById(R.id.input);
         TextView output=(TextView)findViewById(R.id.output);
         Button insertCorpus=(Button)findViewById(R.id.insertCorpus);
         Button calculateProb=(Button)findViewById(R.id.calculateProb);
@@ -39,12 +45,36 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String corpus=input.getText().toString();
+                saveCorpus("MyCorpus", corpus);
+
             }
         });
 
     }
 
-//    @Override
+
+    private void saveCorpus(String filename, String content){
+
+        String fileName = filename+".txt";
+
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
+        , filename);
+
+        try{
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(content.getBytes());
+            fos.close();
+            Toast.makeText(this, "Saved Corpus", Toast.LENGTH_SHORT).show();
+        }catch (FileNotFoundException e){
+            Toast.makeText(this, "File not found", Toast.LENGTH_SHORT).show();
+
+        }catch (IOException e){
+            Toast.makeText(this, "Error~!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
     public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
 
         switch (requestCode){
@@ -53,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
                 if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
                     Toast.makeText(this, "Granted",Toast.LENGTH_SHORT).show();
                 }
+
+                else
+                    Toast.makeText(this,"Permission not granted", Toast.LENGTH_SHORT).show();
+                finish();
         }
 
     }
