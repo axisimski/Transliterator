@@ -31,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:text="Bigram Probabilities" />
+        android:onClick="parseCorpus"
+        android:text="parseCorpus" />
 
     <EditText
         android:id="@+id/corpusInput"

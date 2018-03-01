@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         corpusInput=(EditText)findViewById(R.id.corpusInput);
-        EditText ngramInput=(EditText)findViewById(R.id.ngramInput);
+        final EditText ngramInput=(EditText)findViewById(R.id.ngramInput);
         final TextView output=(TextView)findViewById(R.id.output);
         Button insertCorpus=(Button)findViewById(R.id.insertCorpus);
         Button calculateProb=(Button)findViewById(R.id.calculateProb);
@@ -58,9 +58,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                 //String opit=readCorpus(MyCorpus); //NOT declared final won't work latter
-                // output.setText(opit);
-                String n=parseCorpus();
+                String opit=readCorpus(MyCorpus);
+                String unigram=ngramInput.getText().toString();
+
+                String n=parseCorpus(opit, unigram);
                 output.setText(n);
             }
         });
@@ -107,11 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public String parseCorpus(){
+    public String parseCorpus(String opit, String ngram){
 
-        String opit=readCorpus(MyCorpus);
-      //  String[] arr = opit.split("\\s+");
-      //  ArrayList<String> arr =new ArrayList <String>(); //Put corpus members into arraylist.
 
 
         //---------------------------------------------------------------corpus size
@@ -123,36 +121,9 @@ public class MainActivity extends AppCompatActivity {
         opit="Corpus size: "+css+"\n"+opit;
         //----------------------------------------------------------end corpus size
 
+        opit=opit+ngram;
 
-        //Calculate unigrams (Split of into own function latter).
-
-       String unigram=ngramInput.getText().toString();
-        int  unigramCount=0;
-
-       // for(int i=0;i<corpusSize;i++){
-
-           // if(arr.equals(unigram)){
-           //     unigramCount++;
-           // }
-
-     //   }
-
-
-
-      //  opit=opit+"\n"+Integer.toString(unigramCount);
-
-
-
-
-
-
-
-
-
-
-
-
-      return opit;
+         return opit;
 
 
     }
