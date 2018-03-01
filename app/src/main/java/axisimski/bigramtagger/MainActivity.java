@@ -1,6 +1,7 @@
 package axisimski.bigramtagger;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
@@ -26,16 +27,12 @@ public class MainActivity extends AppCompatActivity {
     TextView output;
     Button insertCorpus;
     Button calculateProb;
+    String MyCorpus="MyCorpus.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                !=PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1000);
-        }
 
         final EditText input=(EditText)findViewById(R.id.input);
         final TextView output=(TextView)findViewById(R.id.output);
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String corpus=input.getText().toString();
-                writeCorpus("MyCorpus", corpus);
+                writeCorpus(MyCorpus, corpus);
 
             }
         });
@@ -56,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              //    String opit=readCorpus(MyCorpus);
-              //    output.setText(opit);
+                  String opit=readCorpus(MyCorpus);
+                  output.setText(opit);
 
             }
         });
@@ -75,13 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
      public void writeCorpus(String filename, String content){
 
-        String fileName = filename+".txt";
-
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
-        , filename);
-
         try{
-            FileOutputStream fos = new FileOutputStream(file);
+            FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE);
             fos.write(content.getBytes());
             fos.close();
             Toast.makeText(this, "Saved Corpus", Toast.LENGTH_SHORT).show();
@@ -91,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         }catch (IOException e){
             Toast.makeText(this, "Error~!", Toast.LENGTH_SHORT).show();
         }
-    }//end
+    }//end write
 
      public String readCorpus(String file){
 
@@ -112,20 +104,6 @@ public class MainActivity extends AppCompatActivity {
          return text;
      }//end read Corpus
 
-     public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
-
-        switch (requestCode){
-            case 1000:
-
-                if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this, "Granted",Toast.LENGTH_SHORT).show();
-                }
-                else
-                    Toast.makeText(this,"Permission not granted", Toast.LENGTH_SHORT).show();
-                finish();
-        }
-
-    }//end
 
 
 
