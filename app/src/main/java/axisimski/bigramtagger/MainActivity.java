@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 String corpus=readCorpus(MyCorpus);
                 String unigram=ngramInput.getText().toString();
 
-                String n=unigramProbability(corpus, unigram);
+                String n=bigramProbability(corpus, unigram);
                 output.setText(n);
             }
         });
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public String unigramProbability(String corpus, String ngram){
+    public String bigramProbability(String corpus, String ngram){
 
 
         //---------------------------------------------------------------corpus size
@@ -149,7 +149,68 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Unigram prob fn
+
+
+/* public String unigramProbability(String corpus, String ngram){
+
+
+        //---------------------------------------------------------------corpus size
+        int numCharsCorpus=corpus.length();
+        int corpusSize=0;
+        StringTokenizer st = new StringTokenizer(corpus, " ");
+        corpusSize= st.countTokens();
+        String css=Integer.toString(corpusSize);
+        //----------------------------------------------------------end corpus size
+
+        String[] arr = corpus.split("\\W+");
+
+
+        int counter=0;
+        String opit="";
+
+        for(int i=0;i<corpusSize;i++){
+
+            opit=opit+"\n"+arr[i];
+            if(arr[i].contains(ngram)){
+                counter++;
+            }
+        }
+
+        double unigramProbability=(double)counter/corpusSize;
+
+        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nUnigram probability: "
+                +Double.toString(unigramProbability)+"\nCorpus: "+corpus+"\n";
+
+        return corpus;
+
+
+    }
+*/
