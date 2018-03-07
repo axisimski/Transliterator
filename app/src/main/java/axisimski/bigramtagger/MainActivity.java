@@ -26,29 +26,25 @@ import java.util.StringTokenizer;
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText corpusInput;
-    EditText ngramInput;
-    TextView output;
-    Button insertCorpus;
-    Button calculateProb;
-    String MyCorpus="MyCorpus.txt";
+    EditText text_edt;
+    Button toCyrillic;
+    Button toLatin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        corpusInput=(EditText)findViewById(R.id.corpusInput);
-        final EditText ngramInput=(EditText)findViewById(R.id.ngramInput);
-        final TextView output=(TextView)findViewById(R.id.output);
-        Button insertCorpus=(Button)findViewById(R.id.insertCorpus);
-        Button calculateProb=(Button)findViewById(R.id.calculateProb);
+        text_edt=(EditText)findViewById(R.id.text_edt);
+        Button toCyrillic=(Button)findViewById(R.id.toCyrillic);
+        Button toLatin=(Button)findViewById(R.id.toLatin);
 
-        insertCorpus.setOnClickListener(new View.OnClickListener() {
+        toCyrillic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                CyrillicToLatin();
             }
         });
 
@@ -57,7 +53,20 @@ public class MainActivity extends AppCompatActivity {
     }//end onCreate
 
 
+    public void CyrillicToLatin(){
 
+        String cyr=text_edt.getText().toString();
+
+        String lat=cyr.replaceAll("a","а");
+        lat=lat.replaceAll("b","б");
+        lat=lat.replaceAll("v","в");
+
+
+        text_edt.setText(lat);
+
+
+
+    }
 
 
 

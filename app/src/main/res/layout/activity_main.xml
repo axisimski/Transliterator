@@ -7,31 +7,34 @@
     tools:context="axisimski.bigramtagger.MainActivity">
 
     <Button
-        android:id="@+id/insertCorpus"
+        android:id="@+id/toLatin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:text="insert Corpus" />
+        android:layout_below="@+id/corpusInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:text="Convert to Latin" />
 
     <Button
-        android:id="@+id/calculateProb"
+        android:id="@+id/toCyrillic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:text="parseCorpus" />
+        android:layout_below="@+id/toLatin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="Convert to Cyrillic" />
 
     <EditText
-        android:id="@+id/corpusInput"
+        android:id="@+id/text_edt"
         android:layout_width="500dp"
         android:layout_height="200dp"
-        android:layout_above="@+id/insertCorpus"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="96dp"
+        android:layout_below="@+id/toCyrillic"
+        android:layout_marginTop="21dp"
         android:ems="10"
         android:hint="Enter text here"
-        android:inputType="textUri|textPersonName" />
+        android:inputType="textUri|textPersonName"
+        android:textAlignment="center" />
 
 
 
