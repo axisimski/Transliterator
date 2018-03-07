@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                LatinToCyrillic();
+
              }
         });
 
@@ -67,19 +69,22 @@ public class MainActivity extends AppCompatActivity {
 
         String lat=convToLat.convertRU(cyr);
 
-
-
-
-
-
-
-
         text_edt.setText(lat);
-
-
 
     }
 
+    public void LatinToCyrillic(){
+
+        String lat=text_edt.getText().toString();
+
+        toCyrillic convToCyr=new toCyrillic();
+
+        String cyr=convToCyr.convertToCyr(lat);
+
+        text_edt.setText(cyr);
+
+
+    }
 
 
 
