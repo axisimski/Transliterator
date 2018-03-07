@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BigramTagger.iml" filepath="$PROJECT_DIR$/BigramTagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bigram-Tagger.iml" filepath="$PROJECT_DIR$/Bigram-Tagger.iml" />
+      <module fileurl="file://C:\Users\Alex\Desktop\Bigram-Tagger\BigramTagger.iml" filepath="C:\Users\Alex\Desktop\Bigram-Tagger\BigramTagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

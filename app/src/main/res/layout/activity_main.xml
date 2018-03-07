@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context="axisimski.bigramtagger.MainActivity">
 
-    <EditText
-        android:id="@+id/ngramInput"
-        android:layout_width="500dp"
-        android:layout_height="50dp"
-        android:layout_alignEnd="@+id/calculateProb"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:hint="Ngram"
-        android:inputType="textUri|textPersonName" />
-
     <Button
         android:id="@+id/insertCorpus"
         android:layout_width="wrap_content"
@@ -30,26 +20,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="parseCorpus"
         android:text="parseCorpus" />
 
     <EditText
         android:id="@+id/corpusInput"
         android:layout_width="500dp"
-        android:layout_height="50dp"
-        android:layout_alignEnd="@+id/calculateProb"
-        android:layout_alignTop="@+id/ngramInput"
-        android:layout_marginTop="76dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/insertCorpus"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="96dp"
         android:ems="10"
-        android:hint="Corpus"
+        android:hint="Enter text here"
         android:inputType="textUri|textPersonName" />
 
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="500dp"
-        android:layout_height="180dp"
-        android:scrollbars="vertical"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+
 
     </RelativeLayout>
