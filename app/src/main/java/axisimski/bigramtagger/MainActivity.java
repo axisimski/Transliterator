@@ -44,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+             }
+        });
+
+        toLatin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 CyrillicToLatin();
             }
         });
@@ -59,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         toLatin convToLat=new toLatin();
 
-        String lat=convToLat.convert(cyr);
+        String lat=convToLat.convertRU(cyr);
 
 
 
