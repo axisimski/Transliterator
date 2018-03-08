@@ -38,14 +38,14 @@
         android:inputType="textMultiLine"
         android:textAlignment="center" />
 
-    <Spinner
-        android:id="@+id/cyrType"
-        android:layout_width="50dp"
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/text_edt"
-        android:layout_alignTop="@+id/toLatin"
-        android:layout_marginEnd="44dp"
-        android:layout_marginTop="11dp" />
+        android:layout_alignStart="@+id/text_edt"
+        android:layout_below="@+id/text_edt"
+        android:layout_marginTop="41dp"
+        android:text="Settings " />
 
 
 </RelativeLayout>

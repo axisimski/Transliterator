@@ -2,6 +2,7 @@ package axisimski.bigramtagger;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     EditText text_edt;
     Button toCyrillic;
     Button toLatin;
+    Button Settings;
     Spinner cyrType;
 
 
@@ -40,15 +42,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         text_edt=(EditText)findViewById(R.id.text_edt);
-        Button toCyrillic=(Button)findViewById(R.id.toCyrillic);
-        Button toLatin=(Button)findViewById(R.id.toLatin);
+        toCyrillic=(Button)findViewById(R.id.toCyrillic);
+        toLatin=(Button)findViewById(R.id.toLatin);
+        Settings=(Button)findViewById(R.id.settings);
 
 
-        Spinner cyrType=findViewById(R.id.cyrType);
-        String[] SSObjects=new String[]{"Russian", "Bulgarian"};
-
-
-
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent n=new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(n);
+            }
+        });
 
 
 
@@ -76,11 +81,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void CyrillicToLatin(){
 
+        Intent mIntent = getIntent();
+        int langVal = mIntent.getIntExtra("lang", 0);
+
         String cyr=text_edt.getText().toString();
         toLatin convToLat=new toLatin();
 
-        String lat=convToLat.convertBG(cyr);
-        text_edt.setText(lat);
+        if(langVal==1){
+          String lat=convToLat.convertBG(cyr);
+          text_edt.setText(lat);
+        }
+
+        else if(langVal==2){
+            String lat=convToLat.convertRU(cyr);
+            text_edt.setText(lat);
+        }
 
     }
 
@@ -90,12 +105,8 @@ public class MainActivity extends AppCompatActivity {
         String lat=text_edt.getText().toString();
         toCyrillic convToCyr=new toCyrillic();
 
-
-
         String cyr=convToCyr.convertToCyrBG(lat);
         text_edt.setText(cyr);
-
-
 
     }
 
