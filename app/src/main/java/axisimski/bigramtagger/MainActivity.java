@@ -9,9 +9,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     EditText text_edt;
     Button toCyrillic;
     Button toLatin;
+    Spinner cyrType;
 
 
     @Override
@@ -39,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
         text_edt=(EditText)findViewById(R.id.text_edt);
         Button toCyrillic=(Button)findViewById(R.id.toCyrillic);
         Button toLatin=(Button)findViewById(R.id.toLatin);
+
+
+        Spinner cyrType=findViewById(R.id.cyrType);
+        String[] SSObjects=new String[]{"Russian", "Bulgarian"};
+
+
+
+
+
+
 
         toCyrillic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,24 +77,24 @@ public class MainActivity extends AppCompatActivity {
     public void CyrillicToLatin(){
 
         String cyr=text_edt.getText().toString();
-
         toLatin convToLat=new toLatin();
 
-        String lat=convToLat.convertRU(cyr);
-
+        String lat=convToLat.convertBG(cyr);
         text_edt.setText(lat);
 
     }
 
     public void LatinToCyrillic(){
 
+        String type=cyrType.getSelectedItem().toString();
         String lat=text_edt.getText().toString();
-
         toCyrillic convToCyr=new toCyrillic();
 
-        String cyr=convToCyr.convertToCyr(lat);
 
+
+        String cyr=convToCyr.convertToCyrBG(lat);
         text_edt.setText(cyr);
+
 
 
     }
