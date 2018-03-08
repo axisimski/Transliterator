@@ -28,6 +28,9 @@ public class SettingsActivity extends AppCompatActivity {
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
+        SharedPreferences SharedPref=getSharedPreferences("userInput", Context.MODE_PRIVATE);
+
+
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,8 @@ public class SettingsActivity extends AppCompatActivity {
         RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+
 
                 if (i == R.id.Bul) {
 
@@ -58,6 +63,8 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void saveSettings(){
+
+
 
 
         Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
