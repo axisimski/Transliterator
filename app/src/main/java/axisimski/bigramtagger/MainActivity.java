@@ -92,10 +92,12 @@ public class MainActivity extends AppCompatActivity {
           text_edt.setText(lat);
         }
 
-        else if(langVal==2){
+        else{
             String lat=convToLat.convertRU(cyr);
             text_edt.setText(lat);
         }
+
+
 
     }
 

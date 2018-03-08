@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -13,6 +15,8 @@ public class SettingsActivity extends AppCompatActivity {
     static RadioButton Bul;
     static RadioButton Rus;
     static RadioGroup RG;
+    static Button Save;
+    static int langNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,30 +26,48 @@ public class SettingsActivity extends AppCompatActivity {
         Bul=findViewById(R.id.Bul);
         Rus=findViewById(R.id.Rus);
         RG=findViewById(R.id.RG);
+        Save=findViewById(R.id.save);
+
+
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveSettings();
+            }
+        });
 
         RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
                 if (i == R.id.Bul) {
-                    Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
-                    myIntent.putExtra("lang", 1);
-                    startActivity(myIntent);
+
+                    langNum=1;
 
 
                 } else  if (i == R.id.Rus) {
-                    Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
-                    myIntent.putExtra("lang", 2);
-                    startActivity(myIntent);
+
+                    langNum=2;
 
                 }
 
             }
-        });
+        }); //end of OnCheckedListener for the radio group
 
 
     }
 
+    public void saveSettings(){
+
+
+        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
+        myIntent.putExtra("lang", langNum);
+        startActivity(myIntent);
+
+
+
+
+    }
 
 
 
