@@ -28,7 +28,6 @@ public class SettingsActivity extends AppCompatActivity {
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
-        SharedPreferences SharedPref=getSharedPreferences("userInput", Context.MODE_PRIVATE);
 
 
 
@@ -45,16 +44,20 @@ public class SettingsActivity extends AppCompatActivity {
 
 
 
+
                 if (i == R.id.Bul) {
+
 
                     langNum=1;
 
 
                 } else  if (i == R.id.Rus) {
 
+
                     langNum=2;
 
                 }
+
 
             }
         }); //end of OnCheckedListener for the radio group
@@ -65,14 +68,9 @@ public class SettingsActivity extends AppCompatActivity {
     public void saveSettings(){
 
 
-
-
         Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
         myIntent.putExtra("lang", langNum);
         startActivity(myIntent);
-
-
-
 
     }
 
