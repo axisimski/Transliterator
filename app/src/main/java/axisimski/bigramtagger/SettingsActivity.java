@@ -49,7 +49,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 
 
-    private void loadSettings()  {
+    public void loadSettings()  {
         SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
 
         if(sharedPreferences!= null) {
@@ -64,8 +64,10 @@ public class SettingsActivity extends AppCompatActivity {
 
 
         if(Rus.isChecked()){
+            MainActivity.langVal=1;
             langNum=1;}
         else if (Bul.isChecked()) {
+            MainActivity.langVal=0;
             langNum=0;
         }
 
@@ -91,6 +93,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
         myIntent.putExtra("lang", langNum);
+
         startActivity(myIntent);
 
     }

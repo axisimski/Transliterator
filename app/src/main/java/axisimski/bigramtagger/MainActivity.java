@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Button toLatin;
     Button Settings;
     Spinner cyrType;
+    static Integer langVal;
 
 
     @Override
@@ -87,16 +88,12 @@ public class MainActivity extends AppCompatActivity {
         String cyr=text_edt.getText().toString();
         toLatin convToLat=new toLatin();
 
-        Intent mIntent = getIntent();
-        int langVal = mIntent.getIntExtra("lang", 0);
 
-
-
-        if(SettingsActivity.Rus.isChecked()) {
+        if(langVal==1) {
              lat = convToLat.convertRU(cyr);
         }
 
-        else if(SettingsActivity.Bul.isChecked()) {
+        else if(langVal==0) {
              lat = convToLat.convertBG(cyr);
         }
 
