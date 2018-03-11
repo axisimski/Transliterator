@@ -31,10 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
-
         loadSettings();
-
-
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +46,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-
     public void loadSettings()  {
         SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
 
@@ -61,16 +57,11 @@ public class SettingsActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
             if(Bul.isChecked()){
-
                 editor.putInt("RUSBUL", 10);
-
             }
 
-
             else if(Rus.isChecked()){
-
                 editor.putInt("RUSBUL", 5);
-
             }
 
             editor.apply();
