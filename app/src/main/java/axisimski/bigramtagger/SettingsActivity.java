@@ -26,6 +26,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+
+
         Bul=findViewById(R.id.Bul);
         Rus=findViewById(R.id.Rus);
         RG=findViewById(R.id.RG);
@@ -33,19 +35,13 @@ public class SettingsActivity extends AppCompatActivity {
 
         this.loadSettings();
 
-        if(Rus.isChecked()){
-            langNum=0;}
-        else if (Bul.isChecked()) {
-            langNum=1;
-        }
-
-        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
-        myIntent.putExtra("lang", langNum);
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveSettings();
+                loadSettings();
+
             }
         });
 
@@ -58,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
 
         if(sharedPreferences!= null) {
-            int checkedRadioButtonId = sharedPreferences.getInt("checkedRadioButtonId", R.id.Rus);
+            int checkedRadioButtonId = sharedPreferences.getInt("checkedRadioButtonId", 0);
 
             this.RG.check(checkedRadioButtonId);
 
@@ -66,6 +62,16 @@ public class SettingsActivity extends AppCompatActivity {
             this.RG.check(R.id.Bul);
             Toast.makeText(this,"Use the default setting",Toast.LENGTH_LONG).show();
         }
+
+
+        if(Rus.isChecked()){
+            langNum=1;}
+        else if (Bul.isChecked()) {
+            langNum=0;
+        }
+
+        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
+        myIntent.putExtra("lang", langNum);
 
     }
 

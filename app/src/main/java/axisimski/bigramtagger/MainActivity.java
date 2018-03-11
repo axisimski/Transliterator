@@ -90,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
         int langVal = mIntent.getIntExtra("lang", 0);
 
 
-        if(langVal==0) {
+        if(langVal==1) {
              lat = convToLat.convertRU(cyr);
         }
 
-        else if(langVal==1) {
+        else if(langVal==0) {
              lat = convToLat.convertBG(cyr);
         }
 
