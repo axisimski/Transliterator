@@ -34,14 +34,13 @@ public class SettingsActivity extends AppCompatActivity {
         this.loadSettings();
 
         if(Rus.isChecked()){
-            langNum=1;}
+            langNum=0;}
         else if (Bul.isChecked()) {
-            langNum=0;
+            langNum=1;
         }
 
-        Intent i = new Intent(this, MainActivity.class);
-        i.putExtra("lang",1);
-
+        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
+        myIntent.putExtra("lang", langNum);
 
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +83,11 @@ public class SettingsActivity extends AppCompatActivity {
         editor.apply();
 
         Toast.makeText(this,"Game Setting saved!",Toast.LENGTH_LONG).show();
+
+        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
+        myIntent.putExtra("lang", langNum);
+        startActivity(myIntent);
+
     }
 
 
