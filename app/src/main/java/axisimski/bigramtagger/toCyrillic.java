@@ -8,7 +8,7 @@ public class toCyrillic {
 
     public String convertToCyrRU(String lat){
 
-        String cyr=lat.replaceAll("a", "а");
+        String cyr=lat.replaceAll("ia", "я");
         cyr=cyr.replaceAll("b","б");
         cyr=cyr.replaceAll("ch","ч");
         cyr=cyr.replaceAll("ts","ц");
@@ -16,7 +16,7 @@ public class toCyrillic {
         cyr=cyr.replaceAll("shch","щ");
         cyr=cyr.replaceAll("y","ы");
         cyr=cyr.replaceAll("iu","ю");
-        cyr=cyr.replaceAll("ia","я");
+        cyr=cyr.replaceAll("a","а");
         cyr=cyr.replaceAll("c","ц");
         cyr=cyr.replaceAll("d","д");
         cyr=cyr.replaceAll("e","е");
@@ -42,7 +42,7 @@ public class toCyrillic {
         cyr=cyr.replaceAll("y","й");
         cyr=cyr.replaceAll("z","з");
 
-        lat.replaceAll("A", "А");
+        lat.replaceAll("IA", "Я");
         cyr=cyr.replaceAll("B","Б");
         cyr=cyr.replaceAll("CH","Ч");
         cyr=cyr.replaceAll("TS","Ц");
@@ -50,7 +50,7 @@ public class toCyrillic {
         cyr=cyr.replaceAll("SHCH","Щ");
         cyr=cyr.replaceAll("Y","Ы");
         cyr=cyr.replaceAll("IU","Ю");
-        cyr=cyr.replaceAll("IA","Я");
+        cyr=cyr.replaceAll("A","А");
         cyr=cyr.replaceAll("C","Ц");
         cyr=cyr.replaceAll("D","Д");
         cyr=cyr.replaceAll("E","Е");

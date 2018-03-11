@@ -9,10 +9,16 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="60dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="156dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
@@ -61,9 +67,12 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/RG"
         android:layout_alignParentTop="true"
-        android:text="Save"
+        android:layout_marginBottom="103dp"
         android:background="@drawable/custom_btn"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="416dp" />
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
 </android.support.constraint.ConstraintLayout>
