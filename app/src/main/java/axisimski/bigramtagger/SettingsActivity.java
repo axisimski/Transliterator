@@ -45,6 +45,8 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
+
+
     }
 
 
@@ -99,6 +101,8 @@ public class SettingsActivity extends AppCompatActivity {
         loadSettings();
 
     }
+
+
 
 
 

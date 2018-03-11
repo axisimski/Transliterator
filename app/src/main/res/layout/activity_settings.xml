@@ -11,10 +11,8 @@
         android:id="@+id/relativeLayout"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_marginTop="148dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="60dp">
 
         <TextView
             android:id="@+id/textView"
@@ -60,8 +58,10 @@
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/RG"
+        android:layout_alignParentTop="true"
         android:text="Save"
         tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="348dp" />
+        tools:layout_editor_absoluteY="416dp" />
 
 </android.support.constraint.ConstraintLayout>
