@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Транслитератор</string>
+    <string name="tocyr">"  →Кириллица  "</string>
+    <string name="tolat">"  →Латиница  "</string>
+    <string name="hint">Текст</string>
+    <string name="type">Выберите алфавит</string>
+    <string name="bg">"Болгарский "</string>
+    <string name="ru">"Русский  "</string>
+    <string name="mo">Монгольский</string>
+    <string name="save">Сохранить</string>
+</resources>

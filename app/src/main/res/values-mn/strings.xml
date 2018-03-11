@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Translit</string>
+    <string name="tocyr">→Кирилл үсэг</string>
+    <string name="tolat">→Латин цагаан толгой</string>
+    <string name="hint">"эх бичиг "</string>
+    <string name="type">Үсэг:</string>
+    <string name="bg">Болгарын цагаан толгой</string>
+    <string name="ru">Оросын цагаан толгой</string>
+    <string name="mo">Монгол үсэг</string>
+</resources>

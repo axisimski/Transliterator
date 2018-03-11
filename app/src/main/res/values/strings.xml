@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Translit</string>
+    <string name="tocyr">→Cyrillic</string>
+    <string name="tolat">"  →Latin"</string>
+    <string name="hint">Enter Text</string>
+    <string name="type">Alphabet:</string>
+    <string name="bg">Bulgarian:</string>
+    <string name="ru">Russian:</string>
+    <string name="mo">Mongolian:</string>
+    <string name="save">Save:</string>
+    
+
+
+
+
+
 </resources>

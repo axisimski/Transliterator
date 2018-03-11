@@ -11,43 +11,43 @@
         android:id="@+id/toLatin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="68dp"
-        android:text="Convert to Latin" />
+        android:layout_alignBottom="@+id/toCyrillic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp"
+        android:background="@drawable/custom_btn"
+        android:text="@string/tolat"/>
 
     <Button
         android:id="@+id/toCyrillic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/toLatin"
-        android:layout_below="@+id/toLatin"
-        android:layout_marginTop="27dp"
-        android:text="Convert to Cyrillic" />
+        android:layout_below="@+id/text_edt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/custom_btn"
+        android:text="@string/tocyr" />
 
     <EditText
         android:id="@+id/text_edt"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/toCyrillic"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="17dp"
-        android:ems="10"
+        android:layout_below="@+id/settings"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
         android:background="@drawable/custome_edt"
+        android:ems="10"
         android:hint="Enter text here"
         android:inputType="textMultiLine"
         android:textAlignment="center" />
 
     <Button
         android:id="@+id/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/toCyrillic"
-        android:layout_marginBottom="31dp"
-        android:layout_toEndOf="@+id/toCyrillic"
-        android:text="Settings " />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/text_edt"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/setbtn" />
 
 
 </RelativeLayout>

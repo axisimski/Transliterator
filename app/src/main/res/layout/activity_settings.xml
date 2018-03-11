@@ -21,7 +21,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="58dp"
-            android:text="Cyrillic Alphabet" />
+            android:text="@string/type"
+            android:textSize="24sp" />
 
         <RadioGroup
             android:id="@+id/RG"
@@ -36,21 +37,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mongolian" />
+                android:text="@string/mo" />
 
             <RadioButton
                 android:id="@+id/Rus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Russian" />
+                android:text="@string/ru" />
 
             <RadioButton
                 android:id="@+id/Bul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bulgarian" />
+                android:text="@string/bg" />
         </RadioGroup>
     </RelativeLayout>
 
@@ -61,6 +62,7 @@
         android:layout_alignEnd="@+id/RG"
         android:layout_alignParentTop="true"
         android:text="Save"
+        android:background="@drawable/custom_btn"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="416dp" />
 
