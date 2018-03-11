@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class SettingsActivity extends AppCompatActivity {
     static RadioGroup RG;
     static Button Save;
     static int langNum;
+    SharedPreferences prefs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,16 @@ public class SettingsActivity extends AppCompatActivity {
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
+        this.loadSettings();
 
+        if(Rus.isChecked()){
+            langNum=1;}
+        else if (Bul.isChecked()) {
+            langNum=0;
+        }
+
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("lang",1);
 
 
         Save.setOnClickListener(new View.OnClickListener() {
@@ -38,52 +50,54 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-
-
-
-                if (i == R.id.Bul) {
-
-
-                    langNum=1;
-
-
-                } else  if (i == R.id.Rus) {
-
-
-                    langNum=2;
-
-                }
-
-
-            }
-        }); //end of OnCheckedListener for the radio group
-
-
-    }
-
-    public void saveSettings(){
-
-
-        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
-        myIntent.putExtra("lang", langNum);
-        startActivity(myIntent);
 
     }
 
 
 
+    private void loadSettings()  {
+        SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+
+        if(sharedPreferences!= null) {
+            int checkedRadioButtonId = sharedPreferences.getInt("checkedRadioButtonId", R.id.Rus);
+
+            this.RG.check(checkedRadioButtonId);
+
+        } else {
+            this.RG.check(R.id.Bul);
+            Toast.makeText(this,"Use the default setting",Toast.LENGTH_LONG).show();
+        }
+
+    }
 
 
+    public void saveSettings()  {
 
+        SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
 
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        int checkedRadioButtonId = RG.getCheckedRadioButtonId();
+
+        editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
+
+        editor.apply();
+
+        Toast.makeText(this,"Game Setting saved!",Toast.LENGTH_LONG).show();
+    }
 
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
 

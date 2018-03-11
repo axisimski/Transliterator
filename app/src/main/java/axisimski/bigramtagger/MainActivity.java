@@ -81,29 +81,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void CyrillicToLatin(){
 
-        Intent mIntent = getIntent();
-        int langVal = mIntent.getIntExtra("lang", 0);
+        String lat="";
 
         String cyr=text_edt.getText().toString();
         toLatin convToLat=new toLatin();
 
-        if(langVal==1){
-          String lat=convToLat.convertBG(cyr);
-          text_edt.setText(lat);
+        Intent mIntent = getIntent();
+        int langVal = mIntent.getIntExtra("lang", 0);
+
+
+        if(langVal==0) {
+             lat = convToLat.convertRU(cyr);
         }
 
-        else{
-            String lat=convToLat.convertRU(cyr);
+        else if(langVal==1) {
+             lat = convToLat.convertBG(cyr);
+        }
+
             text_edt.setText(lat);
-        }
-
-
 
     }
 
+
     public void LatinToCyrillic(){
 
-        String type=cyrType.getSelectedItem().toString();
         String lat=text_edt.getText().toString();
         toCyrillic convToCyr=new toCyrillic();
 
