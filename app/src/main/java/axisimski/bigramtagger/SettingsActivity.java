@@ -15,6 +15,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     static RadioButton Bul;
     static RadioButton Rus;
+    static RadioButton Mon;
     static RadioGroup RG;
     static Button Save;
     static int langNum;
@@ -28,6 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Bul=findViewById(R.id.Bul);
         Rus=findViewById(R.id.Rus);
+        Mon=findViewById(R.id.Mon);
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
@@ -62,6 +64,10 @@ public class SettingsActivity extends AppCompatActivity {
 
             else if(Rus.isChecked()){
                 editor.putInt("RUSBUL", 5);
+            }
+
+            else if(Mon.isChecked()){
+                editor.putInt("RUSBUL", 15);
             }
 
             editor.apply();

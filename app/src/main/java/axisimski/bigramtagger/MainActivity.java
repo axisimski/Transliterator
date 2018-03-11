@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
     public void CyrillicToLatin(){
 
         SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
-
         workPlease = prefs.getInt("RUSBUL", 0);
 
 
@@ -106,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
              lat = convToLat.convertBG(cyr);
         }
 
+        else if(workPlease==15) {
+            lat = convToLat.convertMO(cyr);
+        }
+
+        else{
+            lat = convToLat.convertRU(cyr);
+        }
+
         text_edt.setText(lat);
 
     }
@@ -113,10 +120,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void LatinToCyrillic(){
 
+        SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+        workPlease = prefs.getInt("RUSBUL", 0);
+
         String lat=text_edt.getText().toString();
         toCyrillic convToCyr=new toCyrillic();
 
-        String cyr=convToCyr.convertToCyrBG(lat);
+        String cyr="";
+
+        convToCyr.convertToCyrBG(lat);
+
+        if(workPlease==5) {
+            cyr = convToCyr.convertToCyrRU(lat);
+
+        }
+
+        else if(workPlease==10) {
+            cyr = convToCyr.convertToCyrBG(lat);
+        }
+
+        else if(workPlease==15) {
+            cyr = convToCyr.convertToCyrMO(lat);
+        }
+
+        else{
+            cyr = convToCyr.convertToCyrRU(lat);
+        }
+
+
+
+
+
+
+
+
         text_edt.setText(cyr);
 
     }
