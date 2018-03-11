@@ -26,26 +26,31 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
 
-
         Bul=findViewById(R.id.Bul);
         Rus=findViewById(R.id.Rus);
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
-        this.loadSettings();
+
+        loadSettings();
+
+        RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+            }
+        });
 
 
-        SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+        if(Rus.isChecked()){
+            langNum=1;
+        }
+        else {
+            langNum=0;
+        }
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        int checkedRadioButtonId = RG.getCheckedRadioButtonId();
 
-        editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
-
-        editor.apply();
-
-        this.loadSettings();
 
 
         Save.setOnClickListener(new View.OnClickListener() {
@@ -68,20 +73,11 @@ public class SettingsActivity extends AppCompatActivity {
         if(sharedPreferences!= null) {
             int checkedRadioButtonId = sharedPreferences.getInt("checkedRadioButtonId", 0);
 
-            this.RG.check(checkedRadioButtonId);
+            RG.check(checkedRadioButtonId);
 
         } else {
-            this.RG.check(R.id.Bul);
+            RG.check(R.id.Rus);
             Toast.makeText(this,"Use the default setting",Toast.LENGTH_LONG).show();
-        }
-
-
-        if(Rus.isChecked()){
-            MainActivity.langVal=1;
-            langNum=1;}
-        else if (Bul.isChecked()) {
-            MainActivity.langVal=0;
-            langNum=0;
         }
 
 
@@ -98,6 +94,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
 
+        if(Rus.isChecked()){
+
+            editor.putInt("RUSBUL", 5);
+
+        }
+
+        if(Bul.isChecked()){
+
+            editor.putInt("RUSBUL", 10);
+
+        }
         editor.apply();
 
         Toast.makeText(this,"Setting saved!",Toast.LENGTH_LONG).show();

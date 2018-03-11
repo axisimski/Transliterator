@@ -3,9 +3,11 @@ package axisimski.bigramtagger;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Button Settings;
     Spinner cyrType;
     static Integer langVal;
+    Integer workPlease;
 
 
     @Override
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         toLatin=(Button)findViewById(R.id.toLatin);
         Settings=(Button)findViewById(R.id.settings);
 
+        SettingsActivity.langNum=0;
+
 
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(n);
             }
         });
-
-
 
 
         toCyrillic.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+
+          workPlease = prefs.getInt("RUSBUL", 0);
+
+
+
     }//end onCreate
 
 
@@ -89,15 +98,15 @@ public class MainActivity extends AppCompatActivity {
         toLatin convToLat=new toLatin();
 
 
-        if(SettingsActivity.langNum==1) {
+        if(workPlease==5) {
              lat = convToLat.convertRU(cyr);
         }
 
-        else if(SettingsActivity.langNum==0) {
+        else if(workPlease==10) {
              lat = convToLat.convertBG(cyr);
         }
 
-            text_edt.setText(lat);
+        text_edt.setText(lat);
 
     }
 
