@@ -34,23 +34,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         loadSettings();
 
-        RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-            }
-        });
-
-
-        if(Rus.isChecked()){
-            langNum=1;
-        }
-        else {
-            langNum=0;
-        }
-
-
-
 
 
         Save.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +58,24 @@ public class SettingsActivity extends AppCompatActivity {
 
             RG.check(checkedRadioButtonId);
 
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            if(Bul.isChecked()){
+
+                editor.putInt("RUSBUL", 10);
+
+            }
+
+
+            else if(Rus.isChecked()){
+
+                editor.putInt("RUSBUL", 5);
+
+            }
+
+            editor.apply();
+
+
         } else {
             RG.check(R.id.Rus);
             Toast.makeText(this,"Use the default setting",Toast.LENGTH_LONG).show();
@@ -94,21 +95,11 @@ public class SettingsActivity extends AppCompatActivity {
 
         editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
 
-        if(Rus.isChecked()){
-
-            editor.putInt("RUSBUL", 5);
-
-        }
-
-        if(Bul.isChecked()){
-
-            editor.putInt("RUSBUL", 10);
-
-        }
         editor.apply();
 
         Toast.makeText(this,"Setting saved!",Toast.LENGTH_LONG).show();
 
+        loadSettings();
 
     }
 
