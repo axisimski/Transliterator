@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
@@ -90,11 +91,12 @@ public class MainActivity extends AppCompatActivity {
         int langVal = mIntent.getIntExtra("lang", 0);
 
 
-        if(langVal==1) {
+
+        if(SettingsActivity.Rus.isChecked()) {
              lat = convToLat.convertRU(cyr);
         }
 
-        else if(langVal==0) {
+        else if(SettingsActivity.Bul.isChecked()) {
              lat = convToLat.convertBG(cyr);
         }
 

@@ -18,7 +18,6 @@ public class SettingsActivity extends AppCompatActivity {
     static RadioGroup RG;
     static Button Save;
     static int langNum;
-    SharedPreferences prefs;
 
 
     @Override
