@@ -81,16 +81,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
-
-          workPlease = prefs.getInt("RUSBUL", 0);
-
-
 
     }//end onCreate
 
 
     public void CyrillicToLatin(){
+
+        SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+
+        workPlease = prefs.getInt("RUSBUL", 0);
+
 
         String lat="";
 
