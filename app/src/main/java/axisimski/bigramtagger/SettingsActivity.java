@@ -35,6 +35,19 @@ public class SettingsActivity extends AppCompatActivity {
         this.loadSettings();
 
 
+        SharedPreferences sharedPreferences= this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        int checkedRadioButtonId = RG.getCheckedRadioButtonId();
+
+        editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
+
+        editor.apply();
+
+        this.loadSettings();
+
+
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,8 +84,6 @@ public class SettingsActivity extends AppCompatActivity {
             langNum=0;
         }
 
-        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
-        myIntent.putExtra("lang", langNum);
 
     }
 
@@ -89,12 +100,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         editor.apply();
 
-        Toast.makeText(this,"Game Setting saved!",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Setting saved!",Toast.LENGTH_LONG).show();
 
-        Intent myIntent = new Intent(SettingsActivity.this, MainActivity.class);
-        myIntent.putExtra("lang", langNum);
-
-        startActivity(myIntent);
 
     }
 

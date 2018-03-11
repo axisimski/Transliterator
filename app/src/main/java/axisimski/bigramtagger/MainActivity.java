@@ -89,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
         toLatin convToLat=new toLatin();
 
 
-        if(langVal==1) {
+        if(SettingsActivity.langNum==1) {
              lat = convToLat.convertRU(cyr);
         }
 
-        else if(langVal==0) {
+        else if(SettingsActivity.langNum==0) {
              lat = convToLat.convertBG(cyr);
         }
 
