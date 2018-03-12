@@ -109,6 +109,7 @@ public class toCyrillic {
         cyr=cyr.replaceAll("s","с");
         cyr=cyr.replaceAll("t","т");
         cyr=cyr.replaceAll("u","у");
+        cyr=cyr.replaceAll("u'","ъ");
         cyr=cyr.replaceAll("v","в");
         cyr=cyr.replaceAll("w","у");
         cyr=cyr.replaceAll("x","кс");
@@ -142,6 +143,7 @@ public class toCyrillic {
         cyr=cyr.replaceAll("S","С");
         cyr=cyr.replaceAll("T","Т");
         cyr=cyr.replaceAll("U","У");
+        cyr=cyr.replaceAll("U'","У");
         cyr=cyr.replaceAll("V","В");
         cyr=cyr.replaceAll("W","У");
         cyr=cyr.replaceAll("X","КС");
@@ -191,7 +193,7 @@ public class toCyrillic {
         cyr=cyr.replaceAll("z","з");
         cyr=cyr.replaceAll("ы","y");
 
-        lat.replaceAll("A", "А");
+        cyr=cyr.replaceAll("A", "А");
         cyr=cyr.replaceAll("B","Б");
         cyr=cyr.replaceAll("CH","Ч");
         cyr=cyr.replaceAll("TS","Ц");

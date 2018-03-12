@@ -118,7 +118,7 @@ public class toLatin {
         lat=lat.replaceAll("ч","ch");
         lat=lat.replaceAll("ш","sh");
         lat=lat.replaceAll("щ","sht");
-        lat=lat.replaceAll("ъ","u");
+        lat=lat.replaceAll("ъ","u'");
         lat=lat.replaceAll("ь","'");
         lat=lat.replaceAll("ю","iu");
         lat=lat.replaceAll("я","ia");
@@ -150,7 +150,7 @@ public class toLatin {
         lat=lat.replaceAll("Ч","CH");
         lat=lat.replaceAll("Ш","SH");
         lat=lat.replaceAll("Щ","SHT");
-        lat=lat.replaceAll("Ъ","U");
+        lat=lat.replaceAll("Ъ","U'");
         lat=lat.replaceAll("Ь","'");
         lat=lat.replaceAll("Ю","IU");
         lat=lat.replaceAll("Я","IA");
