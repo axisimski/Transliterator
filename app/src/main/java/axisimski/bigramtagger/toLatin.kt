@@ -91,7 +91,6 @@ class toLatin {
     fun convertBG(cyr: String): String {
 
         var lat: String
-
         lat = cyr.replace("а".toRegex(), "a")
         lat = lat.replace("б".toRegex(), "b")
         lat = lat.replace("в".toRegex(), "v")
@@ -155,10 +154,7 @@ class toLatin {
         lat = lat.replace("Ю".toRegex(), "IU")
         lat = lat.replace("Я".toRegex(), "IA")
 
-
         return lat
-
-
     }
 
     //Convert from Mongolian Cyrillic
@@ -201,7 +197,6 @@ class toLatin {
         lat = lat.replace("я".toRegex(), "ia")
         lat = lat.replace("э".toRegex(), "e")
 
-
         //Capital letters
         lat = lat.replace("А".toRegex(), "A")
         lat = lat.replace("Б".toRegex(), "B")
@@ -239,10 +234,79 @@ class toLatin {
         lat = lat.replace("Ю".toRegex(), "IU")
         lat = lat.replace("Я".toRegex(), "IA")
 
+        return lat
+    }
+
+    //Convert from Bulgarian Cyrillic
+    fun convertSRB(cyr: String): String {
+
+        var lat: String
+
+          lat = cyr.replace("ч".toRegex(), "č")
+        lat = lat.replace("ш".toRegex(), "š")
+        lat = lat.replace("џ".toRegex(), "dž")
+        lat = lat.replace("ћ".toRegex(), "ć'")
+        lat = lat.replace("њ".toRegex(), "nj")
+        lat = lat.replace("љ".toRegex(), "lj")
+        lat = lat.replace("ђ".toRegex(), "đ")
+        lat = lat.replace("а".toRegex(), "a")
+        lat = lat.replace("б".toRegex(), "b")
+        lat = lat.replace("в".toRegex(), "v")
+        lat = lat.replace("г".toRegex(), "g")
+        lat = lat.replace("д".toRegex(), "d")
+        lat = lat.replace("е".toRegex(), "e")
+        lat = lat.replace("ж".toRegex(), "ž")
+        lat = lat.replace("з".toRegex(), "z")
+        lat = lat.replace("и".toRegex(), "i")
+        lat = lat.replace("ј".toRegex(), "j")
+        lat = lat.replace("к".toRegex(), "k")
+        lat = lat.replace("л".toRegex(), "l")
+        lat = lat.replace("м".toRegex(), "m")
+        lat = lat.replace("н".toRegex(), "n")
+        lat = lat.replace("о".toRegex(), "o")
+        lat = lat.replace("п".toRegex(), "p")
+        lat = lat.replace("р".toRegex(), "r")
+        lat = lat.replace("с".toRegex(), "s")
+        lat = lat.replace("т".toRegex(), "t")
+        lat = lat.replace("у".toRegex(), "u")
+        lat = lat.replace("ф".toRegex(), "f")
+        lat = lat.replace("х".toRegex(), "h")
+
+
+        lat = lat.replace("А".toRegex(), "A")
+        lat = lat.replace("Б".toRegex(), "B")
+        lat = lat.replace("В".toRegex(), "V")
+        lat = lat.replace("Г".toRegex(), "G")
+        lat = lat.replace("Д".toRegex(), "D")
+        lat = lat.replace("Е".toRegex(), "E")
+        lat = lat.replace("Ж".toRegex(), "J")
+        lat = lat.replace("З".toRegex(), "Z")
+        lat = lat.replace("И".toRegex(), "I")
+        lat = lat.replace("Л".toRegex(), "I")
+        lat = lat.replace("К".toRegex(), "K")
+        lat = lat.replace("Л".toRegex(), "L")
+        lat = lat.replace("М".toRegex(), "M")
+        lat = lat.replace("Н".toRegex(), "N")
+        lat = lat.replace("О".toRegex(), "O")
+        lat = lat.replace("П".toRegex(), "P")
+        lat = lat.replace("Р".toRegex(), "R")
+        lat = lat.replace("С".toRegex(), "S")
+        lat = lat.replace("Т".toRegex(), "T")
+        lat = lat.replace("У".toRegex(), "U")
+        lat = lat.replace("Ф".toRegex(), "F")
+        lat = lat.replace("Х".toRegex(), "H")
+        lat = lat.replace("Ц".toRegex(), "C")
+        lat = lat.replace("Ч".toRegex(), "CH")
+        lat = lat.replace("Ш".toRegex(), "SH")
+        lat = lat.replace("Щ".toRegex(), "SHT")
+        lat = lat.replace("Ъ".toRegex(), "U'")
+        lat = lat.replace("Ь".toRegex(), "'")
+        lat = lat.replace("Ю".toRegex(), "IU")
+        lat = lat.replace("Я".toRegex(), "IA")
 
         return lat
-
     }
+
 
 
 }
