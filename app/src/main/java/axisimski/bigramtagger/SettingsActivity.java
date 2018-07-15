@@ -16,20 +16,19 @@ public class SettingsActivity extends AppCompatActivity {
     private RadioButton Bul;
     private RadioButton Rus;
     private RadioButton Mon;
+    private RadioButton Srb;
     private RadioGroup RG;
     private Button Save;
-    static int langNum;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-
         Bul=findViewById(R.id.Bul);
         Rus=findViewById(R.id.Rus);
         Mon=findViewById(R.id.Mon);
+        Srb=findViewById(R.id.Srb);
         RG=findViewById(R.id.RG);
         Save=findViewById(R.id.save);
 
@@ -40,13 +39,8 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 saveSettings();
                 loadSettings();
-
             }
         });
-
-
-
-
     }
 
 
@@ -72,8 +66,11 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putInt("RUSBUL", 15);
             }
 
-            editor.apply();
+            else if(Srb.isChecked()){
+                editor.putInt("RUSBUL", 20);
+            }
 
+            editor.apply();
 
         } else {
             RG.check(R.id.Rus);

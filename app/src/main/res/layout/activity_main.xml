@@ -12,32 +12,32 @@
         android:id="@+id/toLatin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/toCyrillic"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="119dp"
         android:background="@drawable/custom_btn"
-        android:text="@string/tolat"/>
+        android:text="@string/tolat" />
 
     <Button
         android:id="@+id/toCyrillic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_edt"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginBottom="53dp"
         android:background="@drawable/custom_btn"
         android:text="@string/tocyr" />
 
     <EditText
         android:id="@+id/text_edt"
         android:layout_width="match_parent"
-        android:layout_height="293dp"
+        android:layout_height="317dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:ems="10"
         android:hint="@string/hint"
-        android:textColor="@color/white"
         android:inputType="textMultiLine"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

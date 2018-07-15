@@ -271,6 +271,7 @@ class toLatin {
         lat = lat.replace("у".toRegex(), "u")
         lat = lat.replace("ф".toRegex(), "f")
         lat = lat.replace("х".toRegex(), "h")
+        lat = lat.replace("ц".toRegex(), "c")
 
 
         lat = lat.replace("Ц".toRegex(), "C")

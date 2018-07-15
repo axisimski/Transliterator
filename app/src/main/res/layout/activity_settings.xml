@@ -40,6 +40,13 @@
             android:layout_marginTop="22dp">
 
             <RadioButton
+                android:id="@+id/Srb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/srb" />
+
+            <RadioButton
                 android:id="@+id/Mon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +76,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="103dp"
         android:background="@drawable/custom_btn"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

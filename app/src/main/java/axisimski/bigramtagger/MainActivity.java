@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         toCyrillic=findViewById(R.id.toCyrillic);
         toLatin=findViewById(R.id.toLatin);
 
-        SettingsActivity.langNum=0;
-
         toCyrillic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             lat = convToLat.convertMO(cyr);
         }
 
+        else if(alphaType==20) {
+            lat = convToLat.convertSRB(cyr);
+        }
+
         else{
             lat = convToLat.convertRU(cyr);
         }
@@ -100,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
 
         else if(alphaType==15) {
             cyr = convToCyr.convertToCyrMO(lat);
+        }
+
+        else if(alphaType==20) {
+            cyr = convToCyr.convertToCyrSrb(lat);
         }
 
         else{

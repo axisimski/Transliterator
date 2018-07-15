@@ -238,6 +238,7 @@ class toCyrillic {
         cyr = cyr.replace("dž".toRegex(), "џ")
         cyr = cyr.replace("nj".toRegex(), "њ")
         cyr = cyr.replace("lj".toRegex(), "љ")
+        cyr = cyr.replace("n".toRegex(), "н")
         cyr = cyr.replace("š".toRegex(), "ш")
         cyr = cyr.replace("b".toRegex(), "б")
         cyr = cyr.replace("v".toRegex(), "в")
@@ -261,6 +262,8 @@ class toCyrillic {
         cyr = cyr.replace("h".toRegex(), "х")
         cyr = cyr.replace("c".toRegex(), "ц")
         cyr = cyr.replace("č".toRegex(), "ч")
+        cyr = cyr.replace("m".toRegex(), "м")
+
 
         cyr = cyr.replace("A".toRegex(), "А")
         cyr = cyr.replace("DŽ".toRegex(), "Џ")
@@ -289,6 +292,8 @@ class toCyrillic {
         cyr = cyr.replace("H".toRegex(), "Х")
         cyr = cyr.replace("C".toRegex(), "Ц")
         cyr = cyr.replace("Č".toRegex(), "Ч")
+        cyr = cyr.replace("N".toRegex(), "Н")
+        cyr = cyr.replace("M".toRegex(), "М")
 
         return cyr
     }
