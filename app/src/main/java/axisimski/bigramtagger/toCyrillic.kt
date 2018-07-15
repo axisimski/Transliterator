@@ -263,6 +263,10 @@ class toCyrillic {
         cyr = cyr.replace("c".toRegex(), "ц")
         cyr = cyr.replace("č".toRegex(), "ч")
         cyr = cyr.replace("m".toRegex(), "м")
+        cyr = cyr.replace("w".toRegex(), "y")
+        cyr = cyr.replace("č".toRegex(), "ч")
+        cyr = cyr.replace("ђ".toRegex(), "đ")
+
 
 
         cyr = cyr.replace("A".toRegex(), "А")
@@ -294,6 +298,9 @@ class toCyrillic {
         cyr = cyr.replace("Č".toRegex(), "Ч")
         cyr = cyr.replace("N".toRegex(), "Н")
         cyr = cyr.replace("M".toRegex(), "М")
+        cyr = cyr.replace("W".toRegex(), "У")
+        cyr = cyr.replace("Š".toRegex(), "Ш")
+        cyr = cyr.replace("Đ".toRegex(), "Ђ")
 
         return cyr
     }
