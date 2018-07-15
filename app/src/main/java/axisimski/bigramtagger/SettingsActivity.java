@@ -13,11 +13,11 @@ import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    static RadioButton Bul;
-    static RadioButton Rus;
-    static RadioButton Mon;
-    static RadioGroup RG;
-    static Button Save;
+    private RadioButton Bul;
+    private RadioButton Rus;
+    private RadioButton Mon;
+    private RadioGroup RG;
+    private Button Save;
     static int langNum;
 
 

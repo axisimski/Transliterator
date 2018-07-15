@@ -35,9 +35,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:ems="10"
-        android:hint="Enter text here"
+        android:hint="@string/hint"
+        android:textColor="@color/white"
         android:inputType="textMultiLine"
         android:textAlignment="center" />
-
 
 </RelativeLayout>

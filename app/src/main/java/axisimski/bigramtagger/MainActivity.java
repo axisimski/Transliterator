@@ -1,47 +1,23 @@
 package axisimski.bigramtagger;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Environment;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.MultiAutoCompleteTextView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
-
 
     private EditText text_edt;
     private Button toCyrillic;
     private Button toLatin;
-    Spinner cyrType;
-    private static Integer langVal;
-    private Integer workPlease;
-
+    private Integer alphaType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +47,10 @@ public class MainActivity extends AppCompatActivity {
     }//end onCreate
 
 
-
-
-
-    public void CyrillicToLatin(){
+    private void CyrillicToLatin(){
 
         SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
-        workPlease = prefs.getInt("RUSBUL", 0);
-
+        alphaType = prefs.getInt("RUSBUL", 0);
 
         String lat="";
 
@@ -86,15 +58,15 @@ public class MainActivity extends AppCompatActivity {
         toLatin convToLat=new toLatin();
 
 
-        if(workPlease==5) {
+        if(alphaType==5) {
              lat = convToLat.convertRU(cyr);
         }
 
-        else if(workPlease==10) {
+        else if(alphaType==10) {
              lat = convToLat.convertBG(cyr);
         }
 
-        else if(workPlease==15) {
+        else if(alphaType==15) {
             lat = convToLat.convertMO(cyr);
         }
 
@@ -106,11 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public void LatinToCyrillic(){
 
         SharedPreferences prefs = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
-        workPlease = prefs.getInt("RUSBUL", 0);
+        alphaType = prefs.getInt("RUSBUL", 0);
 
         String lat=text_edt.getText().toString();
         toCyrillic convToCyr=new toCyrillic();
@@ -119,15 +90,15 @@ public class MainActivity extends AppCompatActivity {
 
         convToCyr.convertToCyrBG(lat);
 
-        if(workPlease==5) {
+        if(alphaType==5) {
             cyr = convToCyr.convertToCyrRU(lat);
         }
 
-        else if(workPlease==10) {
+        else if(alphaType==10) {
             cyr = convToCyr.convertToCyrBG(lat);
         }
 
-        else if(workPlease==15) {
+        else if(alphaType==15) {
             cyr = convToCyr.convertToCyrMO(lat);
         }
 
@@ -138,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //Add Settings button to Action Bar (Takes the user to settings activity)
     public boolean onCreateOptionsMenu(Menu menu){
 
         MenuInflater inflater=getMenuInflater();
@@ -155,10 +126,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         return super.onCreateOptionsMenu(menu);
-     }
+
+     }//end onCreateOptionsMenu()
 
 
-}
+
+}//end class{}
 
 
 
