@@ -242,7 +242,7 @@ class toLatin {
 
         var lat: String
 
-          lat = cyr.replace("ч".toRegex(), "č")
+        lat = cyr.replace("ч".toRegex(), "č")
         lat = lat.replace("ш".toRegex(), "š")
         lat = lat.replace("џ".toRegex(), "dž")
         lat = lat.replace("ћ".toRegex(), "ć'")
@@ -273,16 +273,24 @@ class toLatin {
         lat = lat.replace("х".toRegex(), "h")
 
 
+        lat = lat.replace("Ц".toRegex(), "C")
+        lat = lat.replace("Ш".toRegex(), "Š")
+        lat = lat.replace("Џ".toRegex(), "DŽ")
+        lat = lat.replace("Ч".toRegex(), "Č")
+        lat = lat.replace("Ћ".toRegex(), "Ć'")
+        lat = lat.replace("Њ".toRegex(), "NЈ")
+        lat = lat.replace("Љ".toRegex(), "LЈ")
+        lat = lat.replace("Ђ".toRegex(), "Đ")
         lat = lat.replace("А".toRegex(), "A")
         lat = lat.replace("Б".toRegex(), "B")
         lat = lat.replace("В".toRegex(), "V")
         lat = lat.replace("Г".toRegex(), "G")
         lat = lat.replace("Д".toRegex(), "D")
         lat = lat.replace("Е".toRegex(), "E")
-        lat = lat.replace("Ж".toRegex(), "J")
+        lat = lat.replace("Ж".toRegex(), "Ž")
         lat = lat.replace("З".toRegex(), "Z")
         lat = lat.replace("И".toRegex(), "I")
-        lat = lat.replace("Л".toRegex(), "I")
+        lat = lat.replace("Ј".toRegex(), "J")
         lat = lat.replace("К".toRegex(), "K")
         lat = lat.replace("Л".toRegex(), "L")
         lat = lat.replace("М".toRegex(), "M")
@@ -295,14 +303,6 @@ class toLatin {
         lat = lat.replace("У".toRegex(), "U")
         lat = lat.replace("Ф".toRegex(), "F")
         lat = lat.replace("Х".toRegex(), "H")
-        lat = lat.replace("Ц".toRegex(), "C")
-        lat = lat.replace("Ч".toRegex(), "CH")
-        lat = lat.replace("Ш".toRegex(), "SH")
-        lat = lat.replace("Щ".toRegex(), "SHT")
-        lat = lat.replace("Ъ".toRegex(), "U'")
-        lat = lat.replace("Ь".toRegex(), "'")
-        lat = lat.replace("Ю".toRegex(), "IU")
-        lat = lat.replace("Я".toRegex(), "IA")
 
         return lat
     }
