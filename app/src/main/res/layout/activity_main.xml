@@ -31,24 +31,13 @@
     <EditText
         android:id="@+id/text_edt"
         android:layout_width="match_parent"
-        android:layout_height="214dp"
+        android:layout_height="293dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="78dp"
-        android:background="@drawable/bck"
         android:ems="10"
         android:hint="Enter text here"
         android:inputType="textMultiLine"
         android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/settings"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignEnd="@+id/text_edt"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/setbtn" />
 
 
 </RelativeLayout>

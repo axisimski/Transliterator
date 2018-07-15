@@ -11,6 +11,9 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,13 +35,12 @@ import java.util.StringTokenizer;
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText text_edt;
-    Button toCyrillic;
-    Button toLatin;
-    Button Settings;
+    private EditText text_edt;
+    private Button toCyrillic;
+    private Button toLatin;
     Spinner cyrType;
-    static Integer langVal;
-    Integer workPlease;
+    private static Integer langVal;
+    private Integer workPlease;
 
 
     @Override
@@ -46,29 +48,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        text_edt=(EditText)findViewById(R.id.text_edt);
-        toCyrillic=(Button)findViewById(R.id.toCyrillic);
-        toLatin=(Button)findViewById(R.id.toLatin);
-        Settings=(Button)findViewById(R.id.settings);
+        text_edt=findViewById(R.id.text_edt);
+        toCyrillic=findViewById(R.id.toCyrillic);
+        toLatin=findViewById(R.id.toLatin);
 
         SettingsActivity.langNum=0;
-
-
-        Settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent n=new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(n);
-            }
-        });
-
 
         toCyrillic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 LatinToCyrillic();
-
              }
         });
 
@@ -79,10 +68,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }//end onCreate
+
+
+
 
 
     public void CyrillicToLatin(){
@@ -132,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(workPlease==5) {
             cyr = convToCyr.convertToCyrRU(lat);
-
         }
 
         else if(workPlease==10) {
@@ -146,22 +134,28 @@ public class MainActivity extends AppCompatActivity {
         else{
             cyr = convToCyr.convertToCyrRU(lat);
         }
-
-
-
-
-
-
-
-
         text_edt.setText(cyr);
 
     }
 
 
+    public boolean onCreateOptionsMenu(Menu menu){
 
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
 
+        MenuItem settingsItem=menu.findItem(R.id.item_settings);
+        settingsItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent intent =new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
 
+        return super.onCreateOptionsMenu(menu);
+     }
 
 
 }
@@ -191,41 +185,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//Unigram prob fn
-
-
-/* public String unigramProbability(String corpus, String ngram){
-
-
-        //---------------------------------------------------------------corpus size
-        int numCharsCorpus=corpus.length();
-        int corpusSize=0;
-        StringTokenizer st = new StringTokenizer(corpus, " ");
-        corpusSize= st.countTokens();
-        String css=Integer.toString(corpusSize);
-        //----------------------------------------------------------end corpus size
-
-        String[] arr = corpus.split("\\W+");
-
-
-        int counter=0;
-        String opit="";
-
-        for(int i=0;i<corpusSize;i++){
-
-            opit=opit+"\n"+arr[i];
-            if(arr[i].contains(ngram)){
-                counter++;
-            }
-        }
-
-        double unigramProbability=(double)counter/corpusSize;
-
-        corpus="Corpus size: "+css+"\n"+"Ngram: "+ngram+"\nUnigram probability: "
-                +Double.toString(unigramProbability)+"\nCorpus: "+corpus+"\n";
-
-        return corpus;
-
-
-    }
-*/
