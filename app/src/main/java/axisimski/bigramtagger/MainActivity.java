@@ -12,17 +12,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText text_edt;
     private Button toCyrillic;
     private Button toLatin;
     private Integer alphaType;
+    private AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*AdMob Code*/
+        //Banner Ads
+
+        MobileAds.initialize(this,
+                "ca-app-pub-8271447368800027~5986668867");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         text_edt=findViewById(R.id.text_edt);
         toCyrillic=findViewById(R.id.toCyrillic);

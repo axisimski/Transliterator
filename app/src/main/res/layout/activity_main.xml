@@ -10,11 +10,10 @@
 
     <Button
         android:id="@+id/toLatin"
-        android:layout_width="wrap_content"
+        android:layout_width="81dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="119dp"
+        android:layout_alignStart="@+id/adView"
+        android:layout_alignTop="@+id/toCyrillic"
         android:background="@drawable/custom_btn"
         android:text="@string/tolat" />
 
@@ -22,9 +21,9 @@
         android:id="@+id/toCyrillic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/adView"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="99dp"
         android:background="@drawable/custom_btn"
         android:text="@string/tocyr" />
 
@@ -39,5 +38,17 @@
         android:inputType="textMultiLine"
         android:textAlignment="center"
         android:textColor="@color/white" />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-8271447368800027/6070429343">
+    </com.google.android.gms.ads.AdView>
+
 
 </RelativeLayout>
